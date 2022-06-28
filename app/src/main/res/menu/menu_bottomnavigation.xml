@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/homeMenuIId"
+              android:title="Home"
+              android:icon="@drawable/home_icon"/>
+        <item android:id="@+id/mapMenuId"
+              android:title="Map"
+              android:icon="@drawable/blue_map_localization_icon_9"/>
+        <item android:id="@+id/composeMenuId"
+              android:title="Post"
+              android:icon="@drawable/icon_create_new_icon"/>
+        <item android:id="@+id/Profile"
+              android:title="Profile"
+              android:icon="@drawable/profileid"/>
+</menu>

@@ -1,0 +1,42 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragment.MapFragment">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding="16dp"
+      android:gravity="center_horizontal"
+      tools:context=".MainActivity"
+      >
+
+      <EditText
+          android:id="@+id/et_destination"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:background="@android:drawable/editbox_background"
+          android:hint="Enter Destination"
+          android:padding="12dp" />
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/et_location"
+          android:hint="Current Location"
+          android:padding="12dp"
+          android:background="@android:drawable/editbox_background"
+          />
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/bt_track"
+          android:text="Show Distance"
+          android:layout_marginTop="16dp"/>
+  </LinearLayout>
+
+
+</FrameLayout>

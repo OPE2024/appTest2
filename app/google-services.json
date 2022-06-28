@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "821025411902",
+    "project_id": "o4homes-90618",
+    "storage_bucket": "o4homes-90618.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821025411902:android:aebaf41f1df1b4b087526f",
+        "android_client_info": {
+          "package_name": "com.onaopemipodimowo.apptest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821025411902-c1lbsplh6vmgls5l215lgpvglhmrrdru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ9cGeW1sVGj2-aHhNITGgsDTgd3MicEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821025411902-c1lbsplh6vmgls5l215lgpvglhmrrdru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
