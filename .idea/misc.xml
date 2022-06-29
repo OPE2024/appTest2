@@ -8,17 +8,20 @@
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.3655" />
         <entry key="app/src/main/res/layout/activity_home_details.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/activity_launch_screen.xml" value="0.5791666666666667" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.5791666666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1317365269461078" />
-        <entry key="app/src/main/res/layout/activity_registration.xml" value="0.5791666666666667" />
+        <entry key="app/src/main/res/layout/activity_registration.xml" value="0.5153374233128835" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.2758152173913043" />
+        <entry key="app/src/main/res/layout/activity_upload_profile_pic.xml" value="0.3338541666666667" />
+        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_compose.xml" value="0.365036231884058" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.365036231884058" />
         <entry key="app/src/main/res/layout/fragment_item_home.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.365036231884058" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.19047619047619047" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.375" />
         <entry key="app/src/main/res/layout/gradient.xml" value="0.578125" />
         <entry key="app/src/main/res/layout/item_home.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/common_menu.xml" value="0.3359375" />
         <entry key="app/src/main/res/menu/menu_bottomnavigation.xml" value="0.39166666666666666" />
       </map>
     </option>

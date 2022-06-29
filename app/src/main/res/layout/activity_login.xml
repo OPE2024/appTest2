@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,56 +12,131 @@
     android:background="@drawable/gradient"
     tools:context=".LoginActivity">
 
-    <!-- TextView for heading -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_login_head"
+            android:layout_marginTop="30dp"
+            android:text="Please enter your credentials to Login"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_login_email"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/textView_login_head"
+            android:text="Email"
+            android:textColor="#555555"
+            android:textSize="16sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_login_email"
+            android:layout_below="@+id/textView_login_email"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress"
+            android:padding="6dp"
+            android:textSize="16sp"
+            android:background="@drawable/border"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_login_pwd"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/textView_login_email"
+            android:text="Password"
+            android:textColor="#555555"
+            android:textSize="16sp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="32dp"
+            android:id="@+id/imageView_show_hide_pwd"
+            android:layout_below="@+id/textView_login_pwd"/>
+
+        <EditText
+            android:id="@+id/editText_login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_login_pwd"
+            android:background="@drawable/border"
+            android:hint="Enter password"
+            android:layout_marginStart="30dp"
+            android:inputType="textPassword"
+            android:padding="6dp"
+            android:textSize="16sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/button_login"
+            android:layout_below="@+id/editText_login_pwd"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:elevation="10dp"
+            android:id="@+id/progressBar"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+
+<!--    &lt;!&ndash; Edit text for email &ndash;&gt;-->
+<!--    <EditText-->
+<!--        android:id="@+id/email"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter your Email" />-->
+
+<!--    &lt;!&ndash; Edit text for password &ndash;&gt;-->
+<!--    <EditText-->
+<!--        android:id="@+id/password"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter your Password"-->
+<!--        android:inputType="textPassword" />-->
+
+<!--    &lt;!&ndash; Button for Login with text "Login" &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/login"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Login" />-->
+
 <!--    <TextView-->
+<!--        android:id="@+id/textView"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="Login"-->
-<!--        android:textSize="24sp" />-->
+<!--        android:text="OR"-->
+<!--        android:layout_gravity="center"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <!-- Edit text for email -->
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your Email" />
-
-    <!-- Edit text for password -->
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your Password"
-        android:inputType="textPassword" />
-
-    <!-- Button for Login with text "Login" -->
-    <Button
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OR"
-        android:layout_gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/SignUP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SignUp" />
+<!--    <Button-->
+<!--        android:id="@+id/SignUP"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="SignUp" />-->
 
 
-    <!-- ProgressBar for Loading Time -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+<!--    &lt;!&ndash; ProgressBar for Loading Time &ndash;&gt;-->
+<!--    <ProgressBar-->
+<!--        android:id="@+id/progressBar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:visibility="gone" />-->
 
-</LinearLayout>
+</ScrollView>
