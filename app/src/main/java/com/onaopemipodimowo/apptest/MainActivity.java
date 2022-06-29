@@ -1,8 +1,12 @@
 package com.onaopemipodimowo.apptest;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +15,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 import fragment.ComposeFragment;
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NUM_PAGES=4;
     private ViewPager2 viewPager2;
     private FragmentStateAdapter pageAdapter;
+    private FirebaseAuth authProfile;
 //    boolean home;
 //    private RecyclerView list;
 //    private TextView mTextViewResult;
@@ -95,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 if (position==2){
                     bottomNavigationView.setSelectedItemId(R.id.composeMenuId);
                 }
-                if (position==2){
+                if (position==3){
                     bottomNavigationView.setSelectedItemId(R.id.Profile);
                 }
 
@@ -162,6 +168,53 @@ public class MainActivity extends AppCompatActivity {
                 view.setAlpha(0f);
             }
         }
+    }
+
+
+    // create actionBar Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        //Inflate menu items
+        getMenuInflater().inflate(R.menu.common_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // when any item menu is selcted
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        int id = item.getItemId();
+        if (id == R.id.menu_refresh){
+            //Refresh activity
+            startActivity(getIntent());
+            finish();
+            overridePendingTransition(0,0);
+        }/* else if (id == R.id.menu_update_profile){
+            Intent intent = new Intent(MainActivity.this, UpdateProfileActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.menu_update_email){
+            Intent intent = new Intent(MainActivity.this, UpdateEmailActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.menu_settings){
+            Toast.makeText(MainActivity.this, "menu_settings", Toast.LENGTH_SHORT).show();
+        }else if (id == R.id.menu_change_password){
+            Intent intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.menu_delete_profile){
+            Intent intent = new Intent(MainActivity.this, DeleteProfileActivty.class);
+            startActivity(intent);
+        }*/ else if (id == R.id.menu_logout){
+            authProfile.signOut();
+            Toast.makeText(MainActivity.this,"Logged Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+
+            //Clear stack to prevent user coming back to MainActivity on pressing back button after logging out
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish(); // close MainActivity
+        }else {
+            Toast.makeText(MainActivity.this, "Something went Wrong!", Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
