@@ -184,9 +184,9 @@ public class HomeFragment extends Fragment {
                               JSONObject jsonObject = new JSONObject(myResponse);
 
                               JSONObject dataObject = jsonObject.getJSONObject("data");
-                              JSONObject dataObject1 = dataObject.getJSONObject("home_search");
+                              JSONObject homeSearchObject = dataObject.getJSONObject("home_search");
 
-                              JSONArray dataArr2 = dataObject1.getJSONArray("results");
+                              JSONArray dataArr2 = homeSearchObject.getJSONArray("results");
 
                               for (int i = 0; i <= dataArr2.length(); i++) {
                                   JSONObject dataObject2 = dataArr2.getJSONObject(i);
