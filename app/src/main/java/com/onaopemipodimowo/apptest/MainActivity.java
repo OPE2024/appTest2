@@ -16,6 +16,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 import fragment.ComposeFragment;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 //    private TextView mTextViewResult;
 //    private String myResponse;
     private String TAG = "MainActivity";
+    private FirebaseUser firebaseUser;
+
 //    HomeAdapter adapter;
 //
 //    List<Home> homes;
@@ -49,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
        viewPager2.setAdapter(pageAdapter);
         setViewPagerListener();
         setBottomNavigationView();
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        viewPager2.setPageTransformer(new ZoomOutPageTransformer());
+
 
 
     }

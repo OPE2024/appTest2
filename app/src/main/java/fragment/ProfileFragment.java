@@ -1,5 +1,7 @@
 package fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.onaopemipodimowo.apptest.R;
 import com.onaopemipodimowo.apptest.ReadWriteUserDetails;
+import com.onaopemipodimowo.apptest.UploadProfilePicActivity;
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -102,6 +106,16 @@ public class ProfileFragment extends Fragment {
         textViewCollege = view.findViewById(R.id.textView_show_college);
         progressBar = view.findViewById(R.id.progressBar);
 
+        // Set onClickListener on Imageview to open UploadProfilePicActivity
+        imageView = view.findViewById(R.id.imageView_profile_dp);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), UploadProfilePicActivity.class);
+                startActivity(intent);
+            }
+        });
+
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 
@@ -114,37 +128,6 @@ public class ProfileFragment extends Fragment {
             showUserProfile(firebaseUser);
         }
     }
-
-//        // Users coming to Mainactivity after successful registration
-//    private void checkIfEmailVerified(FirebaseUser firebaseUser){
-//        if (!firebaseUser.isEmailVerified()){
-//            showAlertDialog();
-//        }
-//    }
-
-//    private void showAlertDialog() {
-//        //Setup the alert Builder
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//        builder.setTitle("Email Not Verified");
-//        builder.setMessage("Please verify your email now. You can not login without email verification next time.");
-//
-//        //Open Email apps if user clicks/taps continue button
-//        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Intent intent = new Intent(Intent.ACTION_MAIN);
-//                intent.addCategory(Intent.CATEGORY_APP_EMAIL);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        // Create the alertdialog
-//        AlertDialog alertDialog = builder.create();
-//        // Show the AlertDialog
-//        alertDialog.show();
-//    }
-
 
     private void showUserProfile(FirebaseUser firebaseUser) {
         String userID = firebaseUser.getUid();
@@ -168,6 +151,14 @@ public class ProfileFragment extends Fragment {
                     textViewDoB.setText(doB);
                     textViewGender.setText(gender);
                     textViewCollege.setText(college);
+
+                    // Set User Dp (After user has uploaded)
+                    Uri uri = firebaseUser.getPhotoUrl();
+
+                    //imageviewer setImageURI() should not be used with regular URI'S. so im using picasso
+                    Picasso.with(getContext()).load(uri).into(imageView);
+                }else {
+                    Toast.makeText(getContext(),"Something went wrong!",Toast.LENGTH_LONG).show();
                 }
                 progressBar.setVisibility(View.GONE);
             }
